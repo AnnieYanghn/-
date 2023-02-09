@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="font_3884570_g7ojala9h3t/iconfont.css">
+</head>
+<style>
+    @font-face {
+        font-family: 'fontnamet2';
+        src: url(fonts/DS-DIGI-1.ttf);
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .wrap {
+        margin: 100px auto;
+        width: 250px;
+        height: 350px;
+        background-color: #e7e7e7;
+        padding: 30px 20px 10px;
+    }
+
+    .wrap .main .top {
+        position: relative;
+        height: 100px;
+        border: 2px solid #868484;
+        text-align: right;
+        border-radius: 3px
+    }
+
+    .wrap .main .top .t1 {
+        height: 60px;
+        font-size: 14px;
+        padding-top: 30px;
+    }
+
+    .wrap .main .top .t2 {
+        font-size: 30px;
+        font-family: 'fontnamet2';
+    }
+
+    .wrap .main .top .t3 {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        font-size: 30px;
+        opacity: 0.1;
+        font-family: 'fontnamet2';
+    }
+
+    .wrap .main .bot {
+        display: flex;
+        height: 250px;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .wrap .main .bot .b1 {
+        display: flex;
+        height: 120px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-evenly;
+
+    }
+
+    .wrap .main .bot button {
+        width: 45px;
+        height: 30px;
+        color: #454545;
+        font-weight: bold;
+        font-size: 14px;
+        border: 0;
+        border-radius: 2px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+    }
+
+    .wrap .main .bot .b2 {
+        height: 80px;
+        display: flex;
+        align-content: space-between;
+        justify-content: space-between;
+    }
+
+    .wrap .main .bot .b2 .left {
+        display: flex;
+        width: 155px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .wrap .main .bot .b1 .del {
+        width: 100px;
+        background-color: #db5050;
+        color: white;
+    }
+
+    .wrap .main .bot .b1 .iconfont {
+        background-color: #606060;
+        color: white;
+    }
+
+    .wrap .main .bot .b2 .zero {
+        width: 100px;
+    }
+
+    .wrap .main .bot .b2 .sum {
+        background-color: #ef843d;
+        color: white;
+        height: 70px;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <div class="main">
+            <div class="top">
+                <div class="t1"></div>
+                <div class="t2"></div>
+                <div class="t3">88888888888888</div>
+            </div>
+            <div class="bot">
+                <div class="b1">
+                    <button class="del" onclick="clearLast()">DEL</button>
+                    <button class="iconfont icon-chengbeifen" onclick="addStr('/')"></button>
+                    <button class="iconfont icon-chenghao" onclick="addStr('*')"></button>
+                    <button onclick="addStr(7)">7</button>
+                    <button onclick="addStr(8)">8</button>
+                    <button onclick="addStr(9)">9</button>
+                    <button class="iconfont icon-jian" onclick="addStr('-')"></button>
+                    <button onclick="addStr(4)">4</button>
+                    <button onclick="addStr(5)">5</button>
+                    <button onclick="addStr(6)">6</button>
+                    <button class="iconfont icon-tianjia" onclick="addStr('+')"></button>
+                </div>
+                <div class="b2">
+                    <div class="left">
+                        <button onclick="addStr(1)">1</button>
+                        <button onclick="addStr(2)">2</button>
+                        <button onclick="addStr(3)">3</button>
+                        <button class="zero" onclick="addStr(0)">0</button>
+                        <button onclick="addStr('.')">.</button>
+                    </div>
+                    <div class="right">
+                        <button class="sum" onclick="sum()">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var t2 = document.querySelector('.t2')
+        // 拼接
+        const addStr = (n) => {
+            var t1 = document.querySelector('.t1')
+            t1.innerHTML += n
+        }
+        // 求和
+        const sum = () => {
+            var t1 = document.querySelector('.t1')
+            t2.innerHTML = parseFloat(eval(t1.innerHTML))
+        }
+
+        // 去掉最后一位
+        const clearLast = () => {
+            var t1 = document.querySelector('.t1')
+            t1.innerHTML = t1.innerHTML.slice(0, t1.innerHTML.length - 1)
+        }
+    </script>
+</body>
+
+</html>
